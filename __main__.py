@@ -29,54 +29,65 @@ def main ():
             # Search location
             for location in locations:
 
-                logger.info (f"Scraping data {keyword} - {location}")
 
-                # generate url with keyword and location
-                location_formated = location.lower().replace(' ', '-')
-                keyword_formated = keyword.lower().replace(' ', '-')
-                url = f"https://www.computrabajo.com.mx/trabajo-de-{keyword_formated}-en-{location_formated}"
-                
-                # Get page data page
-                res = requests.get (url)
-                
-                # Get jobs from current page
+                # Loop fopr extract all pages
+                current_page = 1
+                selector_next_page = 'span[title="Siguiente"]'
+                while True:
 
-                # Generate css selectors for get data
-                selector_article = "#p_ofertas article"
-                selector_title = f"{selector_article} h1"
-                selector_company = f"{selector_article} .fs16.fc_base.mt5.mb10"
-                selector_details = f"{selector_article} .fc_aux.t_word_wrap.mb10.hide_m"
-                selector_date = f"{selector_article} .fs13.fc_aux"
+                    # Print status
+                    logger.info (f"Scraping data of {keyword} in {location}, page: {current_page}")
 
-                # Get number of articles in the current page
-                soup = bs4.BeautifulSoup (res.text, "html.parser")
-                articles = soup.select (selector_article)
-                
-                # Get data from each article
-                for article in articles:
-
-                    # Skeip duplicated jobs
-                    id = article.get ("id")
-                    if id in jobs_ids:
-                        continue
-                    else:
-                        jobs_ids.append (id)
-
-                    # Get job data
-                    title = article.select (selector_title)[0].getText()
-                    company = article.select (selector_company)[0].getText()
-                    details = article.select (selector_details)[0].getText()
-                    date = article.select (selector_date)[0].getText().strip()
+                    # generate url with keyword and location
+                    location_formated = location.lower().replace(' ', '-')
+                    keyword_formated = keyword.lower().replace(' ', '-')
+                    url = f"https://www.computrabajo.com.mx/trabajo-de-{keyword_formated}-en-{location_formated}?p={current_page}"
                     
-                    # Clean data
-                    title = title.strip().replace("\n", "").replace (",", "").replace ("\r\r", " ").replace ("\r", "")
-                    company = company.strip().replace("\n", "").replace (",", "").replace ("\r\r", " ").replace ("\r", "")
-                    details = details.strip().replace("\n", "").replace (",", "").replace ("\r\r", " ").replace ("\r", "")
-                    date = date.strip().replace("\n", "").replace (",", "").replace ("\r\r", " ").replace ("\r", "")
+                    # Get page data page
+                    res = requests.get (url)
+                    
+                    # Generate css selectors for get data
+                    selector_article = "#p_ofertas article"
+                    selector_title = f"{selector_article} h1"
+                    selector_company = f"{selector_article} .fs16.fc_base.mt5.mb10"
+                    selector_details = f"{selector_article} .fc_aux.t_word_wrap.mb10.hide_m"
+                    selector_date = f"{selector_article} .fs13.fc_aux"
 
-                    # Add data to csv
-                    row_data = [keywords_category, location, title, company, details, date]
-                    csv_writter.writerow (row_data)
+                    # Get number of articles in the current page
+                    soup = bs4.BeautifulSoup (res.text, "html.parser")
+                    articles = soup.select (selector_article)
+                    
+                    # Get data from each article
+                    for article in articles:
+
+                        # Skeip duplicated jobs
+                        id = article.get ("id")
+                        if id in jobs_ids:
+                            continue
+                        else:
+                            jobs_ids.append (id)
+
+                        # Get job data
+                        title = article.select (selector_title)[0].getText()
+                        company = article.select (selector_company)[0].getText()
+                        details = article.select (selector_details)[0].getText()
+                        date = article.select (selector_date)[0].getText().strip()
+                        
+                        # Clean data
+                        title = title.strip().replace("\n", "").replace (",", "").replace ("\r\r", " ").replace ("\r", "")
+                        company = company.strip().replace("\n", "").replace (",", "").replace ("\r\r", " ").replace ("\r", "")
+                        details = details.strip().replace("\n", "").replace (",", "").replace ("\r\r", " ").replace ("\r", "")
+                        date = date.strip().replace("\n", "").replace (",", "").replace ("\r\r", " ").replace ("\r", "")
+
+                        # Add data to csv
+                        row_data = [keywords_category, location, title, company, details, date]
+                        csv_writter.writerow (row_data)
+
+                    next_button = soup.select (selector_next_page)
+                    if next_button:
+                        current_page+=1
+                    else:
+                        break
 
             # Debug lines
             break
