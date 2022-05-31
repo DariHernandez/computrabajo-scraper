@@ -21,6 +21,10 @@ def main ():
     csv_file = open(csv_path, "a", encoding="utf-8", newline="")
     csv_writter = csv.writer(csv_file)
 
+    # Write colum titles 
+    headers = ["keyword", "location", "title", "company", "details", "date"]
+    csv_writter.writerow (headers)
+
     # Search each keyword
     for keyword in keywords:
 
@@ -81,6 +85,7 @@ def main ():
                     row_data = [keyword, location, title, company, details, date]
                     csv_writter.writerow (row_data)
 
+                # Load more pages
                 next_button = soup.select (selector_next_page)
                 if next_button:
                     current_page+=1
