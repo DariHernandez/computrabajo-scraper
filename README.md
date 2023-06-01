@@ -41,7 +41,7 @@ Project type: **personal's project**
 
 # Details
 
-The oputput data is saved in the \\"data.csv\\" file.
+The oputput data is saved in the "data.csv" file.
 You can setup the project with the config.json file.
 
 ## Output data
@@ -71,19 +71,19 @@ In the config.json file, there are the locations and keywords for search in the 
 
 ```json
 {
-    \\"computrabajo\\": \\"computrabajo.com.mx\\",
-    \\"keywords\\":  [
-        \\"web developer\\", 
-        \\"frontend\\", 
+    "computrabajo": "computrabajo.com.mx",
+    "keywords":  [
+        "web developer", 
+        "frontend", 
     ],
-    \\"locations\\": [
-        \\"Aguascalientes\\",
-        \\"Baja California\\",
-        \\"Baja California Sur\\",
-        \\"Campeche\\",
-        \\"Chiapas\\",
-        \\"Chihuahua\\",
-        \\"Ciudad de Mexico\\",
+    "locations": [
+        "Aguascalientes",
+        "Baja California",
+        "Baja California Sur",
+        "Campeche",
+        "Chiapas",
+        "Chihuahua",
+        "Ciudad de Mexico",
     ]
 }
 ```
