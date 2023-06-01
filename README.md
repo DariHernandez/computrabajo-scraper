@@ -41,7 +41,7 @@ Project type: **personal's project**
 
 # Details
 
-The oputput data is saved in the \\\"data.csv\\\" file.
+The oputput data is saved in the \\"data.csv\\" file.
 You can setup the project with the config.json file.
 
 ## Output data
@@ -59,9 +59,9 @@ Sample:
 Open Terminal in project folder and install all modules from pip:
 (here a tutorial about [how to open terminal in project folder for windows](https://github.com/DariHernandez/tutorials/tree/master/open%20terminal%20(cmd)%20in%20project%20folder%20in%20windows)) 
 
-\\`\\`\\` bash
+\`\`\` bash
 $ pip install -r requirements.txt
-\\`\\`\\`
+\`\`\`
 
 # Settings
 
@@ -69,24 +69,24 @@ In the config.json file, there are the locations and keywords for search in the 
 
 ## Structure
 
-\\`\\`\\`json
+\`\`\`json
 {
-    \\\"computrabajo\\\": \\\"computrabajo.com.mx\\\",
-    \\\"keywords\\\":  [
-        \\\"web developer\\\", 
-        \\\"frontend\\\", 
+    \\"computrabajo\\": \\"computrabajo.com.mx\\",
+    \\"keywords\\":  [
+        \\"web developer\\", 
+        \\"frontend\\", 
     ],
-    \\\"locations\\\": [
-        \\\"Aguascalientes\\\",
-        \\\"Baja California\\\",
-        \\\"Baja California Sur\\\",
-        \\\"Campeche\\\",
-        \\\"Chiapas\\\",
-        \\\"Chihuahua\\\",
-        \\\"Ciudad de Mexico\\\",
+    \\"locations\\": [
+        \\"Aguascalientes\\",
+        \\"Baja California\\",
+        \\"Baja California Sur\\",
+        \\"Campeche\\",
+        \\"Chiapas\\",
+        \\"Chihuahua\\",
+        \\"Ciudad de Mexico\\",
     ]
 }
-\\`\\`\\`
+\`\`\`
 
 ### computrabajo
 Url of the specific page where do you can to extract data
@@ -108,14 +108,14 @@ Before, [open terminal in project folder for windows](https://github.com/DariHer
 
 After, type: 
 
-\\`\\`\\` bash
+\`\`\` bash
 $ py __main__.py
-\\`\\`\\`
+\`\`\`
 
 or
 
-\\`\\`\\` bash
+\`\`\` bash
 $ py .
-\\`\\`\\`
+\`\`\`
 
 
