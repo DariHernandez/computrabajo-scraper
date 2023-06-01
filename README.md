@@ -48,9 +48,9 @@ You can setup the project with the config.json file.
 Sample:
 |keyword|location|title|company|details|date|link|
 |---|---|---|---|---|---|---|
-|frontend|Aguascalientes|Desarrollador web / Analista de IT|Scanner Forms...|-Sexo indistinto -Escolaridad: Ingeniero...|Hace 4 días|www.computrabajo.com.mx/ofertas-de-trabajo/oferta-de-trabajo-de...|
-|frontend|Aguascalientes|React Developer|bebo Technologies Mx Aguascalien...|bebo MX is a leading IT software solutio...|Hace 6 días|www.computrabajo.com.mx/ofertas-de-trabajo/oferta-de-trabajo-de...|
-|frontend|Aguascalientes|Programador/a|Clubmaple Aguascalientes Aguascali..|Integración de innovación tecnológica en ...|Más de 30 días|www.computrabajo.com.mx/ofertas-de-trabajo/oferta-de-trabajo-de...|
+|frontend|Aguascalientes|Desarrollador web / Analista de IT|Scanner Forms...|-Sexo indistinto -Escolaridad: Ingeniero...|Hace 4 dÃ­as|www.computrabajo.com.mx/ofertas-de-trabajo/oferta-de-trabajo-de...|
+|frontend|Aguascalientes|React Developer|bebo Technologies Mx Aguascalien...|bebo MX is a leading IT software solutio...|Hace 6 dÃ­as|www.computrabajo.com.mx/ofertas-de-trabajo/oferta-de-trabajo-de...|
+|frontend|Aguascalientes|Programador/a|Clubmaple Aguascalientes Aguascali..|IntegraciÃ³n de innovaciÃ³n tecnolÃ³gica en ...|MÃ¡s de 30 dÃ­as|www.computrabajo.com.mx/ofertas-de-trabajo/oferta-de-trabajo-de...|
 
 # Install
 
@@ -59,9 +59,9 @@ Sample:
 Open Terminal in project folder and install all modules from pip:
 (here a tutorial about [how to open terminal in project folder for windows](https://github.com/DariHernandez/tutorials/tree/master/open%20terminal%20(cmd)%20in%20project%20folder%20in%20windows)) 
 
-\`\`\` bash
+``` bash
 $ pip install -r requirements.txt
-\`\`\`
+```
 
 # Settings
 
@@ -69,7 +69,7 @@ In the config.json file, there are the locations and keywords for search in the 
 
 ## Structure
 
-\`\`\`json
+```json
 {
     \\"computrabajo\\": \\"computrabajo.com.mx\\",
     \\"keywords\\":  [
@@ -86,7 +86,7 @@ In the config.json file, there are the locations and keywords for search in the 
         \\"Ciudad de Mexico\\",
     ]
 }
-\`\`\`
+```
 
 ### computrabajo
 Url of the specific page where do you can to extract data
@@ -108,14 +108,14 @@ Before, [open terminal in project folder for windows](https://github.com/DariHer
 
 After, type: 
 
-\`\`\` bash
+``` bash
 $ py __main__.py
-\`\`\`
+```
 
 or
 
-\`\`\` bash
+``` bash
 $ py .
-\`\`\`
+```
 
 
